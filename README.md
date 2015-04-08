@@ -13,5 +13,4 @@ This plugin use all code avaliable on https://github.com/forcedotcom/SalesforceM
     $ cordova run android
     
 ## See Salesforce documentation
-==
 [SalesforceSDK](http://forcedotcom.github.com/SalesforceMobileSDK-Android/index.html)
