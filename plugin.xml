@@ -4,7 +4,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="com.salesforce"
         version="3.1.3">
-
+libdatabase_sqlcipher.so
 	<name>cordova-salesforceSDK Plugins</name>
 	<description>Cordova SalesforceSDK Plugins</description>
 	<license>Apache 2.0</license>
@@ -168,30 +168,30 @@
         <source-file src="src/android/com/salesforce/androidsdk/ui/SalesforceServerRadioButton.java" target-dir="src/com/salesforce/androidsdk/ui" />
         <source-file src="src/android/com/salesforce/androidsdk/ui/ServerPickerActivity.java" target-dir="src/com/salesforce/androidsdk/ui" />
 
-		<source-file src="src/android/com/salesforce/androidsdk/util/test/BroadcastListenerQueue.java" target-dir="src/com/salesforce/androidsdk/util/test" />
-		<source-file src="src/android/com/salesforce/androidsdk/util/test/EventsListenerQueue.java" target-dir="src/com/salesforce/androidsdk/util/test" />
-		<source-file src="src/android/com/salesforce/androidsdk/util/test/EventsObserver.java" target-dir="src/com/salesforce/androidsdk/util/test" />
-		<source-file src="src/android/com/salesforce/androidsdk/util/test/ForceAppInstrumentationTestCase.java" target-dir="src/com/salesforce/androidsdk/util/test" />
-		<source-file src="src/android/com/salesforce/androidsdk/util/test/HybridInstrumentationTestCase.java" target-dir="src/com/salesforce/androidsdk/util/test" />
-		<source-file src="src/android/com/salesforce/androidsdk/util/test/JSONTestHelper.java" target-dir="src/com/salesforce/androidsdk/util/test" />
-		<source-file src="src/android/com/salesforce/androidsdk/util/test/JSTestCase.java" target-dir="src/com/salesforce/androidsdk/util/test" />
-		<source-file src="src/android/com/salesforce/androidsdk/util/test/JUnitReportTestRunner.java" target-dir="src/com/salesforce/androidsdk/util/test" />
-		<source-file src="src/android/com/salesforce/androidsdk/util/test/NativeInstrumentationTestCase.java" target-dir="src/com/salesforce/androidsdk/util/test" />
-		<source-file src="src/android/com/salesforce/androidsdk/util/test/TimeLimitedTestRunner.java" target-dir="src/com/salesforce/androidsdk/util/test" />
+	<source-file src="src/android/com/salesforce/androidsdk/util/test/BroadcastListenerQueue.java" target-dir="src/com/salesforce/androidsdk/util/test" />
+	<source-file src="src/android/com/salesforce/androidsdk/util/test/EventsListenerQueue.java" target-dir="src/com/salesforce/androidsdk/util/test" />
+	<source-file src="src/android/com/salesforce/androidsdk/util/test/EventsObserver.java" target-dir="src/com/salesforce/androidsdk/util/test" />
+	<source-file src="src/android/com/salesforce/androidsdk/util/test/ForceAppInstrumentationTestCase.java" target-dir="src/com/salesforce/androidsdk/util/test" />
+	<source-file src="src/android/com/salesforce/androidsdk/util/test/HybridInstrumentationTestCase.java" target-dir="src/com/salesforce/androidsdk/util/test" />
+	<source-file src="src/android/com/salesforce/androidsdk/util/test/JSONTestHelper.java" target-dir="src/com/salesforce/androidsdk/util/test" />
+	<source-file src="src/android/com/salesforce/androidsdk/util/test/JSTestCase.java" target-dir="src/com/salesforce/androidsdk/util/test" />
+	<source-file src="src/android/com/salesforce/androidsdk/util/test/JUnitReportTestRunner.java" target-dir="src/com/salesforce/androidsdk/util/test" />
+	<source-file src="src/android/com/salesforce/androidsdk/util/test/NativeInstrumentationTestCase.java" target-dir="src/com/salesforce/androidsdk/util/test" />
+	<source-file src="src/android/com/salesforce/androidsdk/util/test/TimeLimitedTestRunner.java" target-dir="src/com/salesforce/androidsdk/util/test" />
 
-		<source-file src="src/android/com/salesforce/androidsdk/util/EventsObservable.java" target-dir="src/com/salesforce/androidsdk/util" />
-		<source-file src="src/android/com/salesforce/androidsdk/util/JSONObjectHelper.java" target-dir="src/com/salesforce/androidsdk/util" />
-		<source-file src="src/android/com/salesforce/androidsdk/util/LogUtil.java" target-dir="src/com/salesforce/androidsdk/util" />
-		<source-file src="src/android/com/salesforce/androidsdk/util/UriFragmentParser.java" target-dir="src/com/salesforce/androidsdk/util" />
-		<source-file src="src/android/com/salesforce/androidsdk/util/UserSwitchReceiver.java" target-dir="src/com/salesforce/androidsdk/util" />
+	<source-file src="src/android/com/salesforce/androidsdk/util/EventsObservable.java" target-dir="src/com/salesforce/androidsdk/util" />
+	<source-file src="src/android/com/salesforce/androidsdk/util/JSONObjectHelper.java" target-dir="src/com/salesforce/androidsdk/util" />
+	<source-file src="src/android/com/salesforce/androidsdk/util/LogUtil.java" target-dir="src/com/salesforce/androidsdk/util" />
+	<source-file src="src/android/com/salesforce/androidsdk/util/UriFragmentParser.java" target-dir="src/com/salesforce/androidsdk/util" />
+	<source-file src="src/android/com/salesforce/androidsdk/util/UserSwitchReceiver.java" target-dir="src/com/salesforce/androidsdk/util" />
 
-        <source-file src="src/libs/armeabi/libdatabase_sqlcipher.so" target-dir="libs"/>
-        <source-file src="src/libs/armeabi/libsqlcipher_android.so" target-dir="libs"/>
-        <source-file src="src/libs/armeabi/libstlport_shared.so" target-dir="libs"/>
+        <source-file src="src/libs/armeabi/libdatabase_sqlcipher.so" target-dir="libs/armeabi"/>
+        <source-file src="src/libs/armeabi/libsqlcipher_android.so" target-dir="libs/armeabi"/>
+        <source-file src="src/libs/armeabi/libstlport_shared.so" target-dir="libs/armeabi"/>
 
-        <source-file src="src/libs/x86/libdatabase_sqlcipher.so" target-dir="libs"/>
-        <source-file src="src/libs/x86/libsqlcipher_android.so" target-dir="libs"/>
-        <source-file src="src/libs/x86/libstlport_shared.so" target-dir="libs"/>
+        <source-file src="src/libs/x86/libdatabase_sqlcipher.so" target-dir="libs/x86"/>
+        <source-file src="src/libs/x86/libsqlcipher_android.so" target-dir="libs/x86"/>
+        <source-file src="src/libs/x86/libstlport_shared.so" target-dir="libs/x86"/>
 
         <source-file src="src/libs/android-junit-report-1.5.8.jar" target-dir="libs"/>
         <source-file src="src/libs/apache-mime4j-0.7.2.jar" target-dir="libs"/>
@@ -199,7 +199,7 @@
         <source-file src="src/libs/guava-18.0.jar" target-dir="libs"/>
         <source-file src="src/libs/httpcore-4.3.2-modified.jar" target-dir="libs"/>
         <source-file src="src/libs/httpmime-4.3.2.jar" target-dir="libs"/>
-		<source-file src="src/libs/sqlcipher.jar" target-dir="libs"/>
+	<source-file src="src/libs/sqlcipher.jar" target-dir="libs"/>
         <source-file src="src/libs/volley_android-4.4.2_r2.jar" target-dir="libs"/>
 
         <source-file src="src/assets/icudt46l.zip" target-dir="assets/" />
