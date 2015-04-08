@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="com.salesforce"
+        version="3.1.3">
+
+	<name>cordova-salesforceSDK Plugins</name>
+	<description>Cordova SalesforceSDK Plugins</description>
+	<license>Apache 2.0</license>
+	<keywords>salesforce,oauth,smartstore,smartsync,cordova</keywords>
+	<repo>https://github.com/iFernandoSousa/cordova-salesforcesdk.git</repo>
+
+	<js-module src="www/com.salesforce.plugin.oauth.js" name="plugin.oauth"></js-module>
+	<js-module src="www/com.salesforce.plugin.sdkinfo.js" name="plugin.sdkinfo"></js-module>
+	<js-module src="www/com.salesforce.plugin.smartstore.js" name="plugin.smartstore">
+		<clobbers target="navigator.smartstore" />
+	</js-module>
+	<js-module src="www/com.salesforce.plugin.sfaccountmanager.js" name="plugin.sfaccountmanager"></js-module>
+	<js-module src="www/com.salesforce.plugin.smartsync.js" name="plugin.smartsync"></js-module>
+	<js-module src="www/com.salesforce.util.bootstrap.js" name="util.bootstrap"></js-module>
+	<js-module src="www/com.salesforce.util.event.js" name="util.event"></js-module>
+	<js-module src="www/com.salesforce.util.exec.js" name="util.exec"></js-module>
+	<js-module src="www/com.salesforce.util.logger.js" name="util.logger"></js-module>
+	<js-module src="www/com.salesforce.util.push.js" name="util.push"></js-module>
+
+	<engines>
+		<engine name="cordova" version=">=3.5.0" />
+	</engines>
+
+	<dependency id="org.apache.cordova.device"/>
+	<dependency id="com.phonegap.plugins.PushPlugin" url="https://github.com/forcedotcom/PushPlugin" />
+
+    <!-- android -->
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+        	<access origin="http://127.0.0.1*" />
+			<access origin="https://*.force.com" />
+			<access origin="https://*.salesforce.com" />
+
+			<feature name="com.salesforce.oauth">
+				<param name="android-package" value="com.salesforce.androidsdk.phonegap.SalesforceOAuthPlugin"/>
+			</feature>
+      		<feature name="com.salesforce.sfaccountmanager">
+      			<param name="android-package" value="com.salesforce.androidsdk.phonegap.SFAccountManagerPlugin"/>
+      		</feature>
+      		<feature name="com.salesforce.sdkinfo">
+      			<param name="android-package" value="com.salesforce.androidsdk.phonegap.SDKInfoPlugin"/>
+      		</feature>
+      		<feature name="com.salesforce.smartstore">
+      			<param name="android-package" value="com.salesforce.androidsdk.smartstore.phonegap.SmartStorePlugin"/>
+      		</feature>
+      		<feature name="com.salesforce.smartsync">
+      			<param name="android-package" value="com.salesforce.androidsdk.smartsync.phonegap.SmartSyncPlugin"/>
+      		</feature>
+        </config-file>
+
+        <source-file src="src/android/com/salesforce/androidsdk/R.java" target-dir="src/com/salesforce/androidsdk" />
+
+        <source-file src="src/android/com/salesforce/androidsdk/accounts/UserAccount.java" target-dir="src/com/salesforce/androidsdk/accounts" />
+        <source-file src="src/android/com/salesforce/androidsdk/accounts/UserAccountManager.java" target-dir="src/com/salesforce/androidsdk/accounts" />
+
+        <source-file src="src/android/com/salesforce/androidsdk/app/HybridApp.java" target-dir="src/com/salesforce/androidsdk/app" />
+        <source-file src="src/android/com/salesforce/androidsdk/app/SalesforceSDKManager.java" target-dir="src/com/salesforce/androidsdk/app" />
+        <source-file src="src/android/com/salesforce/androidsdk/app/UpgradeManager.java" target-dir="src/com/salesforce/androidsdk/app" />
+        <source-file src="src/android/com/salesforce/androidsdk/app/UUIDManager.java" target-dir="src/com/salesforce/androidsdk/app" />
+
+        <source-file src="src/android/com/salesforce/androidsdk/auth/AuthenticatorService.java" target-dir="src/com/salesforce/androidsdk/auth" />
+        <source-file src="src/android/com/salesforce/androidsdk/auth/HttpAccess.java" target-dir="src/com/salesforce/androidsdk/auth" />
+        <source-file src="src/android/com/salesforce/androidsdk/auth/OAuth2.java" target-dir="src/com/salesforce/androidsdk/auth" />
+
+        <source-file src="src/android/com/salesforce/androidsdk/config/AbstractPrefsManager.java" target-dir="src/com/salesforce/androidsdk/config" />
+        <source-file src="src/android/com/salesforce/androidsdk/config/AdminPermsManager.java" target-dir="src/com/salesforce/androidsdk/config" />
+        <source-file src="src/android/com/salesforce/androidsdk/config/AdminSettingsManager.java" target-dir="src/com/salesforce/androidsdk/config" />
+        <source-file src="src/android/com/salesforce/androidsdk/config/BootConfig.java" target-dir="src/com/salesforce/androidsdk/config" />
+        <source-file src="src/android/com/salesforce/androidsdk/config/LoginServerManager.java" target-dir="src/com/salesforce/androidsdk/config" />
+        <source-file src="src/android/com/salesforce/androidsdk/config/RuntimeConfig.java" target-dir="src/com/salesforce/androidsdk/config" />
+        
+        <source-file src="src/android/com/salesforce/androidsdk/phonegap/ForcePlugin.java" target-dir="src/com/salesforce/androidsdk/phonegap" />
+        <source-file src="src/android/com/salesforce/androidsdk/phonegap/JavaScriptPluginVersion.java" target-dir="src/com/salesforce/androidsdk/phonegap" />
+        <source-file src="src/android/com/salesforce/androidsdk/phonegap/SalesforceOAuthPlugin.java" target-dir="src/com/salesforce/androidsdk/phonegap" />
+        <source-file src="src/android/com/salesforce/androidsdk/phonegap/SDKInfoPlugin.java" target-dir="src/com/salesforce/androidsdk/phonegap" />
+        <source-file src="src/android/com/salesforce/androidsdk/phonegap/SFAccountManagerPlugin.java" target-dir="src/com/salesforce/androidsdk/phonegap" />
+        <source-file src="src/android/com/salesforce/androidsdk/phonegap/TestRunnerPlugin.java" target-dir="src/com/salesforce/androidsdk/phonegap" />
+
+        <source-file src="src/android/com/salesforce/androidsdk/push/PushBroadcastReceiver.java" target-dir="src/com/salesforce/androidsdk/push" />
+        <source-file src="src/android/com/salesforce/androidsdk/push/PushMessaging.java" target-dir="src/com/salesforce/androidsdk/push" />
+        <source-file src="src/android/com/salesforce/androidsdk/push/PushNotificationInterface.java" target-dir="src/com/salesforce/androidsdk/push" />
+        <source-file src="src/android/com/salesforce/androidsdk/push/PushService.java" target-dir="src/com/salesforce/androidsdk/push" />
+
+        <source-file src="src/android/com/salesforce/androidsdk/rest/files/ApiRequests.java" target-dir="src/com/salesforce/androidsdk/rest/files" />
+        <source-file src="src/android/com/salesforce/androidsdk/rest/files/ConnectUriBuilder.java" target-dir="src/com/salesforce/androidsdk/rest/files" />
+        <source-file src="src/android/com/salesforce/androidsdk/rest/files/FileRequests.java" target-dir="src/com/salesforce/androidsdk/rest/files" />
+        <source-file src="src/android/com/salesforce/androidsdk/rest/files/RenditionType.java" target-dir="src/com/salesforce/androidsdk/rest/files" />
+
+        <source-file src="src/android/com/salesforce/androidsdk/rest/ApiVersionStrings.java" target-dir="src/com/salesforce/androidsdk/rest" />
+        <source-file src="src/android/com/salesforce/androidsdk/rest/ClientManager.java" target-dir="src/com/salesforce/androidsdk/rest" />
+        <source-file src="src/android/com/salesforce/androidsdk/rest/RestClient.java" target-dir="src/com/salesforce/androidsdk/rest" />
+        <source-file src="src/android/com/salesforce/androidsdk/rest/RestRequest.java" target-dir="src/com/salesforce/androidsdk/rest" />
+        <source-file src="src/android/com/salesforce/androidsdk/rest/RestResponse.java" target-dir="src/com/salesforce/androidsdk/rest" />
+
+        <source-file src="src/android/com/salesforce/androidsdk/security/Encryptor.java" target-dir="src/com/salesforce/androidsdk/security" />
+        <source-file src="src/android/com/salesforce/androidsdk/security/PasscodeManager.java" target-dir="src/com/salesforce/androidsdk/security" />
+        <source-file src="src/android/com/salesforce/androidsdk/security/PRNGFixes.java" target-dir="src/com/salesforce/androidsdk/security" />
+        
+        <source-file src="src/android/com/salesforce/androidsdk/smartstore/R.java" target-dir="src/com/salesforce/androidsdk/smartstore" />
+
+        <source-file src="src/android/com/salesforce/androidsdk/smartstore/app/HybridAppWithSmartStore.java" target-dir="src/com/salesforce/androidsdk/smartstore/app" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartstore/app/SalesforceSDKManagerWithSmartStore.java" target-dir="src/com/salesforce/androidsdk/smartstore/app" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartstore/app/UpgradeManagerWithSmartStore.java" target-dir="src/com/salesforce/androidsdk/smartstore/app" />
+
+        <source-file src="src/android/com/salesforce/androidsdk/smartstore/phonegap/SmartStorePlugin.java" target-dir="src/com/salesforce/androidsdk/smartstore/phonegap" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartstore/phonegap/StoreCursor.java" target-dir="src/com/salesforce/androidsdk/smartstore/phonegap" />
+
+        <source-file src="src/android/com/salesforce/androidsdk/smartstore/store/AlterSoupLongOperation.java" target-dir="src/com/salesforce/androidsdk/smartstore/store" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartstore/store/DBHelper.java" target-dir="src/com/salesforce/androidsdk/smartstore/store" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartstore/store/DBOpenHelper.java" target-dir="src/com/salesforce/androidsdk/smartstore/store" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartstore/store/IndexSpec.java" target-dir="src/com/salesforce/androidsdk/smartstore/store" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartstore/store/LongOperation.java" target-dir="src/com/salesforce/androidsdk/smartstore/store" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartstore/store/QuerySpec.java" target-dir="src/com/salesforce/androidsdk/smartstore/store" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartstore/store/SmartSqlHelper.java" target-dir="src/com/salesforce/androidsdk/smartstore/store" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartstore/store/SmartStore.java" target-dir="src/com/salesforce/androidsdk/smartstore/store" />
+
+        <source-file src="src/android/com/salesforce/androidsdk/smartstore/ui/SmartStoreInspectorActivity.java" target-dir="src/com/salesforce/androidsdk/smartstore/ui" />
+
+        <source-file src="src/android/com/salesforce/androidsdk/smartsync/R.java" target-dir="src/com/salesforce/androidsdk/smartsync" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartsync/SmartSyncUserAccountManager.java" target-dir="src/com/salesforce/androidsdk/smartsync" />
+
+        <source-file src="src/android/com/salesforce/androidsdk/smartsync/app/HybridAppWithSmartSync.java" target-dir="src/com/salesforce/androidsdk/smartsync/app" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartsync/app/SmartSyncSDKManager.java" target-dir="src/com/salesforce/androidsdk/smartsync/app" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartsync/app/SmartSyncUpgradeManager.java" target-dir="src/com/salesforce/androidsdk/smartsync/app" />
+
+        <source-file src="src/android/com/salesforce/androidsdk/smartsync/manager/CacheManager.java" target-dir="src/com/salesforce/androidsdk/smartsync/manager" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartsync/manager/MetadataManager.java" target-dir="src/com/salesforce/androidsdk/smartsync/manager" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartsync/manager/SyncManager.java" target-dir="src/com/salesforce/androidsdk/smartsync/manager" />
+
+        <source-file src="src/android/com/salesforce/androidsdk/smartsync/model/SalesforceObject.java" target-dir="src/com/salesforce/androidsdk/smartsync/model" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartsync/model/SalesforceObjectLayoutColumn.java" target-dir="src/com/salesforce/androidsdk/smartsync/model" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartsync/model/SalesforceObjectType.java" target-dir="src/com/salesforce/androidsdk/smartsync/model" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartsync/model/SalesforceObjectTypeLayout.java" target-dir="src/com/salesforce/androidsdk/smartsync/model" />
+
+        <source-file src="src/android/com/salesforce/androidsdk/smartsync/phonegap/SmartSyncPlugin.java" target-dir="src/com/salesforce/androidsdk/smartsync/phonegap" />
+
+        <source-file src="src/android/com/salesforce/androidsdk/smartsync/util/Constants.java" target-dir="src/com/salesforce/androidsdk/smartsync/util" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartsync/util/SOQLBuilder.java" target-dir="src/com/salesforce/androidsdk/smartsync/util" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartsync/util/SOSLBuilder.java" target-dir="src/com/salesforce/androidsdk/smartsync/util" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartsync/util/SOSLReturningBuilder.java" target-dir="src/com/salesforce/androidsdk/smartsync/util" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartsync/util/SyncOptions.java" target-dir="src/com/salesforce/androidsdk/smartsync/util" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartsync/util/SyncState.java" target-dir="src/com/salesforce/androidsdk/smartsync/util" />
+        <source-file src="src/android/com/salesforce/androidsdk/smartsync/util/SyncTarget.java" target-dir="src/com/salesforce/androidsdk/smartsync/util" />
+
+        <source-file src="src/android/com/salesforce/androidsdk/ui/sfhybrid/SalesforceDroidGapActivity.java" target-dir="src/com/salesforce/androidsdk/ui/sfhybrid" />
+        <source-file src="src/android/com/salesforce/androidsdk/ui/sfhybrid/SalesforceIceCreamWebViewClient.java" target-dir="src/com/salesforce/androidsdk/ui/sfhybrid" />
+        <source-file src="src/android/com/salesforce/androidsdk/ui/sfhybrid/SalesforceWebViewClientHelper.java" target-dir="src/com/salesforce/androidsdk/ui/sfhybrid" />
+
+        <source-file src="src/android/com/salesforce/androidsdk/ui/sfnative/SalesforceActivity.java" target-dir="src/com/salesforce/androidsdk/ui/sfnative" />
+        <source-file src="src/android/com/salesforce/androidsdk/ui/sfnative/SalesforceExpandableListActivity.java" target-dir="src/com/salesforce/androidsdk/ui/sfnative" />
+        <source-file src="src/android/com/salesforce/androidsdk/ui/sfnative/SalesforceListActivity.java" target-dir="src/com/salesforce/androidsdk/ui/sfnative" />
+
+        <source-file src="src/android/com/salesforce/androidsdk/ui/AccountSwitcherActivity.java" target-dir="src/com/salesforce/androidsdk/ui" />
+        <source-file src="src/android/com/salesforce/androidsdk/ui/CustomServerUrlEditor.java" target-dir="src/com/salesforce/androidsdk/ui" />
+        <source-file src="src/android/com/salesforce/androidsdk/ui/LoginActivity.java" target-dir="src/com/salesforce/androidsdk/ui" />
+        <source-file src="src/android/com/salesforce/androidsdk/ui/ManageSpaceActivity.java" target-dir="src/com/salesforce/androidsdk/ui" />
+        <source-file src="src/android/com/salesforce/androidsdk/ui/OAuthWebviewHelper.java" target-dir="src/com/salesforce/androidsdk/ui" />
+        <source-file src="src/android/com/salesforce/androidsdk/ui/PasscodeActivity.java" target-dir="src/com/salesforce/androidsdk/ui" />
+        <source-file src="src/android/com/salesforce/androidsdk/ui/SalesforceAccountRadioButton.java" target-dir="src/com/salesforce/androidsdk/ui" />
+        <source-file src="src/android/com/salesforce/androidsdk/ui/SalesforceR.java" target-dir="src/com/salesforce/androidsdk/ui" />
+        <source-file src="src/android/com/salesforce/androidsdk/ui/SalesforceServerRadioButton.java" target-dir="src/com/salesforce/androidsdk/ui" />
+        <source-file src="src/android/com/salesforce/androidsdk/ui/ServerPickerActivity.java" target-dir="src/com/salesforce/androidsdk/ui" />
+
+		<source-file src="src/android/com/salesforce/androidsdk/util/test/BroadcastListenerQueue.java" target-dir="src/com/salesforce/androidsdk/util/test" />
+		<source-file src="src/android/com/salesforce/androidsdk/util/test/EventsListenerQueue.java" target-dir="src/com/salesforce/androidsdk/util/test" />
+		<source-file src="src/android/com/salesforce/androidsdk/util/test/EventsObserver.java" target-dir="src/com/salesforce/androidsdk/util/test" />
+		<source-file src="src/android/com/salesforce/androidsdk/util/test/ForceAppInstrumentationTestCase.java" target-dir="src/com/salesforce/androidsdk/util/test" />
+		<source-file src="src/android/com/salesforce/androidsdk/util/test/HybridInstrumentationTestCase.java" target-dir="src/com/salesforce/androidsdk/util/test" />
+		<source-file src="src/android/com/salesforce/androidsdk/util/test/JSONTestHelper.java" target-dir="src/com/salesforce/androidsdk/util/test" />
+		<source-file src="src/android/com/salesforce/androidsdk/util/test/JSTestCase.java" target-dir="src/com/salesforce/androidsdk/util/test" />
+		<source-file src="src/android/com/salesforce/androidsdk/util/test/JUnitReportTestRunner.java" target-dir="src/com/salesforce/androidsdk/util/test" />
+		<source-file src="src/android/com/salesforce/androidsdk/util/test/NativeInstrumentationTestCase.java" target-dir="src/com/salesforce/androidsdk/util/test" />
+		<source-file src="src/android/com/salesforce/androidsdk/util/test/TimeLimitedTestRunner.java" target-dir="src/com/salesforce/androidsdk/util/test" />
+
+		<source-file src="src/android/com/salesforce/androidsdk/util/EventsObservable.java" target-dir="src/com/salesforce/androidsdk/util" />
+		<source-file src="src/android/com/salesforce/androidsdk/util/JSONObjectHelper.java" target-dir="src/com/salesforce/androidsdk/util" />
+		<source-file src="src/android/com/salesforce/androidsdk/util/LogUtil.java" target-dir="src/com/salesforce/androidsdk/util" />
+		<source-file src="src/android/com/salesforce/androidsdk/util/UriFragmentParser.java" target-dir="src/com/salesforce/androidsdk/util" />
+		<source-file src="src/android/com/salesforce/androidsdk/util/UserSwitchReceiver.java" target-dir="src/com/salesforce/androidsdk/util" />
+
+        <source-file src="src/libs/armeabi/libdatabase_sqlcipher.so" target-dir="libs"/>
+        <source-file src="src/libs/armeabi/libsqlcipher_android.so" target-dir="libs"/>
+        <source-file src="src/libs/armeabi/libstlport_shared.so" target-dir="libs"/>
+
+        <source-file src="src/libs/x86/libdatabase_sqlcipher.so" target-dir="libs"/>
+        <source-file src="src/libs/x86/libsqlcipher_android.so" target-dir="libs"/>
+        <source-file src="src/libs/x86/libstlport_shared.so" target-dir="libs"/>
+
+        <source-file src="src/libs/android-junit-report-1.5.8.jar" target-dir="libs"/>
+        <source-file src="src/libs/apache-mime4j-0.7.2.jar" target-dir="libs"/>
+        <source-file src="src/libs/commons-codec.jar" target-dir="libs"/>
+        <source-file src="src/libs/guava-18.0.jar" target-dir="libs"/>
+        <source-file src="src/libs/httpcore-4.3.2-modified.jar" target-dir="libs"/>
+        <source-file src="src/libs/httpmime-4.3.2.jar" target-dir="libs"/>
+		<source-file src="src/libs/sqlcipher.jar" target-dir="libs"/>
+        <source-file src="src/libs/volley_android-4.4.2_r2.jar" target-dir="libs"/>
+
+        <source-file src="src/assets/icudt46l.zip" target-dir="assets/" />
+    </platform>
+</plugin>
